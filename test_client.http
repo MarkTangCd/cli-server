@@ -1,0 +1,31 @@
+### Create a template
+POST http://localhost:8080/template/create
+Content-Type: application/json
+
+{
+  "name": "TestTemplate3",
+  "value": "test_template_value3",
+  "npmName": "@raca/test-template3",
+  "version": "0.3.0",
+  "forceInstall": true
+}
+
+### Update a template
+POST http://localhost:8080/template/update
+Content-Type: application/json
+
+{
+  "name": "TestTemplate2Updated",
+  "value": "test_template_value2",
+  "npmName": "@raca/test-template2",
+  "version": "0.2.0",
+  "forceInstall": false
+}
+
+### Delete a template
+GET http://localhost:8080/template/delete/test_template_value2
+Content-Type: application/json
+
+### Get template list
+GET http://localhost:8080/template
+Content-Type: application/json
