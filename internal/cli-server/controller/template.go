@@ -34,7 +34,7 @@ func CreateTemplate(c *gin.Context) {
 }
 
 func TemplateList(c *gin.Context) {
-	list, count, err := store.TemplateList(c)
+	list, _, err := store.TemplateList(c)
 	if err != nil {
 		log.Println(err)
 		c.String(http.StatusInternalServerError, "Getting template list failed")
@@ -43,10 +43,7 @@ func TemplateList(c *gin.Context) {
 	c.JSON(http.StatusOK, ResponseData{
 		Code:    200,
 		Message: "OK",
-		Data: map[string]interface{}{
-			"list":  list,
-			"count": count,
-		},
+		Data:    list,
 	})
 }
 
